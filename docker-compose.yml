@@ -1,0 +1,8 @@
+version: '3'
+
+services:
+  prock.host:
+    image: prockhost
+    build:
+      context: .
+      dockerfile: src/Prock.Sample/Dockerfile
