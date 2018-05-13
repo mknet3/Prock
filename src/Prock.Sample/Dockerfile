@@ -3,12 +3,12 @@ WORKDIR /app
 EXPOSE 80
 
 FROM microsoft/aspnetcore-build:2.0 AS build
-WORKDIR /src
+WORKDIR /sample
 COPY Prock.sln ./
-COPY src/Prock.Sample/Prock.Sample.csproj Prock.Sample/
+COPY src/ src/
 RUN dotnet restore -nowarn:msb3202,nu1503
 COPY . .
-WORKDIR /src/Prock.Sample
+WORKDIR /sample/src/Prock.Sample
 RUN dotnet build -c Release -o /app
 
 FROM build AS publish
